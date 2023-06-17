@@ -8,6 +8,26 @@
 //It does not matter what you leave beyond the returned k (hence they are underscores).
 
 func removeDuplicates(_ nums: inout [Int]) -> Int {
+//    solo va a revisar las posiciones que yo le indique de 0 a k. pisa la posicion y mete el valor que quiero
+    var elemAnterior: Int? = nil
+    var marcador = 0
+    
+    for elem in nums {
+        if elem != elemAnterior {
+            nums[marcador] = elem
+            marcador += 1
+        }
+        elemAnterior = elem
+    }
+    return marcador
+}
+
+var lista = [0,0,1,1,1,2,2,3,3,4]
+removeDuplicates(&lista)
+lista
+
+
+func removeDuplicates(_ nums: inout [Int]) -> Int {
     var anterior:Int? = nil
     var output:[Int] = []
     var accum = 0
